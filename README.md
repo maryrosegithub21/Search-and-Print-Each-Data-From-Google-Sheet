@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Google Sheets App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that interacts with Google Sheets to display and manage data. It allows users to search, view, and generate PDFs from the data retrieved from a Google Sheet. The application also requires a valid Church ID for access.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Fetch and display data from Google Sheets.
+- Search functionality to filter data by first or last name.
+- Generate PDFs from selected data rows.
+- Update Google Sheets with a "Yes" in the "Print" column upon PDF generation.
+- Authorization using Church ID.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js and npm installed on your machine.
+- Google Cloud Platform account with the Google Sheets API enabled.
+- A Google Sheets API key and a service account key file for OAuth 2.0 authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/google-sheets-app.git
+   cd google-sheets-app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install dependencies:
+npm install
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Environment Variables:
+Create a .env file in the root directory with the following variables:
+REACT_APP_GOOGLE_API_KEY=your_google_api_key
+REACT_APP_SPREADSHEET_ID=your_spreadsheet_id
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Service Account Key:
+Place your service account key file in the project directory and update the path in GoogleSheets.js:
+const auth = new google.auth.GoogleAuth({
+  keyFile: 'path/to/your/service-account-key.json',
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Usage
+Start the development server:
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Access the application:
+Open your browser and navigate to http://localhost:3000.
+Enter Church ID:
+Upon loading, the application will prompt for a Church ID. Enter a valid ID to access the data.
+Search and Generate PDF:
+Use the search bar to filter data by first or last name.
+Click on a row to select it, then click "Print Data" to generate a PDF and update the Google Sheet.
+Deployment
+Google Cloud Platform
+Set Up Google Cloud Project:
+Create a project in the Google Cloud Console.
+Enable the Google App Engine API.
+Deploy to App Engine:
+Create an app.yaml file in the root directory:
+runtime: nodejs16
+env_variables:
+  GOOGLE_API_TOKEN: your_google_api_token
+handlers:
+- url: /.*
+  script: auto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Deploy using the Google Cloud SDK:
+gcloud app deploy
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Access the Deployed App:
+Use gcloud app browse to open your deployed application.
+License
+This project is licensed under the MIT License.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Notes
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Replace placeholders like `your_google_api_key`, `your_spreadsheet_id`, and `yourusername` with actual values.
+- Adjust the deployment instructions if you choose a different cloud provider or deployment method.
+- Expand sections as needed to include more detailed instructions or additional features.
