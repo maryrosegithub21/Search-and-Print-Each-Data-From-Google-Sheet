@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/css/main.bd4a31f6.css",
-    "main.js": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/js/main.45470b67.js",
-    "static/js/453.a492519c.chunk.js": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/js/453.a492519c.chunk.js",
-    "index.html": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/index.html",
-    "main.bd4a31f6.css.map": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/css/main.bd4a31f6.css.map",
-    "main.45470b67.js.map": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/js/main.45470b67.js.map",
-    "453.a492519c.chunk.js.map": "/maryrosegithub21/Search-and-Print-Each-Data-From-Google-Sheet/static/js/453.a492519c.chunk.js.map"
+    "main.css": "/Search-and-Print-Each-Data-From-Google-Sheet/static/css/main.bd4a31f6.css",
+    "main.js": "/Search-and-Print-Each-Data-From-Google-Sheet/static/js/main.4aa1a541.js",
+    "static/js/453.a492519c.chunk.js": "/Search-and-Print-Each-Data-From-Google-Sheet/static/js/453.a492519c.chunk.js",
+    "index.html": "/Search-and-Print-Each-Data-From-Google-Sheet/index.html",
+    "main.bd4a31f6.css.map": "/Search-and-Print-Each-Data-From-Google-Sheet/static/css/main.bd4a31f6.css.map",
+    "main.4aa1a541.js.map": "/Search-and-Print-Each-Data-From-Google-Sheet/static/js/main.4aa1a541.js.map",
+    "453.a492519c.chunk.js.map": "/Search-and-Print-Each-Data-From-Google-Sheet/static/js/453.a492519c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bd4a31f6.css",
-    "static/js/main.45470b67.js"
+    "static/js/main.4aa1a541.js"
   ]
 }
