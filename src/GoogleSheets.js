@@ -377,7 +377,7 @@ const GoogleSheets = () => {
       generatePdf(rowDataToPass)
       .then(() => {
         alert('PDF generated successfully!');
-        updateGoogleSheet(selectedRowIndex); // Update the Google Sheet
+        // updateGoogleSheet(selectedRowIndex); // Update the Google Sheet
       })
       .catch((error) => {
         console.error('Error generating PDF:', error);
