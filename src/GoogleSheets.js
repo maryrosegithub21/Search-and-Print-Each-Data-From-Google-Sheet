@@ -335,22 +335,22 @@ const GoogleSheets = () => {
   //   }
   // };
   
-  const updateGoogleSheet = async (rowIndex) => {
-    const updateRange = `RAW FORM DATA!M${rowIndex + 2}`; // Assuming "Print" column is M
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${updateRange}?valueInputOption=USER_ENTERED&key=${API_KEY}`;
-    const body = {
-      range: updateRange,
-      majorDimension: "ROWS",
-      values: [["Yes"]],
-    };
+  // const updateGoogleSheet = async (rowIndex) => {
+  //   const updateRange = `RAW FORM DATA!M${rowIndex + 2}`; // Assuming "Print" column is M
+  //   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${updateRange}?valueInputOption=USER_ENTERED&key=${API_KEY}`;
+  //   const body = {
+  //     range: updateRange,
+  //     majorDimension: "ROWS",
+  //     values: [["Yes"]],
+  //   };
 
-    try {
-      await axios.put(url, body);
-      console.log('Google Sheet updated successfully.');
-    } catch (error) {
-      console.error('Error updating Google Sheet:', error);
-    }
-  };
+  //   try {
+  //     await axios.put(url, body);
+  //     console.log('Google Sheet updated successfully.');
+  //   } catch (error) {
+  //     console.error('Error updating Google Sheet:', error);
+  //   }
+  // };
 
   // Call the createGoogleDocsDocument function in handlePassToGoogleDocs
   const handlePassToGoogleDocs = () => {
