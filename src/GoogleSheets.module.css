@@ -28,6 +28,7 @@
   height: 50px; /* Adjust the height as needed */
   font-size: 16px; /* Optional: Adjust font size for better appearance */
   padding: 10px 20px; /* Optional: Add padding for better spacing */
+  margin-left: 10px;
 }
 
 .container {
@@ -70,7 +71,6 @@
 
 h1 {
   font-size: 2rem;
-  color: red;
 }
 
 input[type="text"] {
