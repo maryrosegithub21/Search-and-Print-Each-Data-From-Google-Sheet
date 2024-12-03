@@ -11,6 +11,7 @@
 }
 .selected-row {
   background-color: blue;
+  color: rgb(242, 25, 5); /* Optional: change text color for better contrast */
 }
 
 .data-table th {

@@ -74,11 +74,16 @@ const GoogleSheets = () => {
   const handleRowClick = (rowData, rowIndex) => {
     setSelectedRowData(rowData);
   setSelectedRowIndex(rowIndex); // Set the selected row index
-  console.log('Row Data Clicked:', rowData);
+  console.log('You Clicked:', rowData);
+
+  // Assuming the first name is at index 1 and the last name is at index 2
+  const firstName = rowData[1];
+  const lastName = rowData[2];
+  alert(`You've clicked: ${firstName} ${lastName}`); // Show a message with the person's name
   };
 
   // Call the createGoogleDocsDocument function in handlePassToGoogleDocs
-  const handlePassToGoogleDocs = () => {
+  const handlePassToGoogleDocs = (rowData, rowIndex) => {
     if (selectedRowData) {
       const lastName = selectedRowData[2]; // Assuming the last name is at index 2
       const confirmationMessage = `Are you sure you want to print the information of ${lastName}?`;
@@ -102,8 +107,27 @@ const GoogleSheets = () => {
       generatePdf(rowDataToPass)
       .then(() => {
         alert('PDF generated successfully!');
-        // updateGoogleSheet(selectedRowIndex); // Update the Google Sheet
-      })
+        // Check if the newReturning field is "New"
+      //   if (rowDataToPass.newReturning === "New") {
+      //     const url = `https://fs.mcgi.org/recipients/?user_firstname=${encodeURIComponent(rowDataToPass.firstName)}&user_lastname=${encodeURIComponent(rowDataToPass.lastName)}&contact_number=${encodeURIComponent(rowDataToPass.contact)}&contact_address=${encodeURIComponent(rowDataToPass.address)}&wp-submit=Search&action=retrieverecipient`;
+      //     window.location.href = url;
+      //   } else {
+      //     // alert('The registrant is not new, so no URL will be shown.');
+      //     const url = `https://fs.mcgi.org/recipients/?recipient_firstname=${encodeURIComponent(rowDataToPass.firstName)}&recipient_lastname=${encodeURIComponent(rowDataToPass.lastName)}&qr_number=${encodeURIComponent(rowDataToPass.qrCode)}&action=retrieverecipient`;
+      //     window.location.href = url;
+      //   }
+      // })
+
+      let url;
+          if (rowDataToPass.newReturning === "New") {
+            url = `https://fs.mcgi.org/recipients/?user_firstname=${encodeURIComponent(rowDataToPass.firstName)}&user_lastname=${encodeURIComponent(rowDataToPass.lastName)}&contact_number=${encodeURIComponent(rowDataToPass.contact)}&contact_address=${encodeURIComponent(rowDataToPass.address)}&wp-submit=Search&action=retrieverecipient`;
+          } else if (rowDataToPass.newReturning === "Returning") {
+            url = `https://fs.mcgi.org/recipients/?recipient_firstname=${encodeURIComponent(rowDataToPass.firstName)}&recipient_lastname=${encodeURIComponent(rowDataToPass.lastName)}&qr_number=${encodeURIComponent(rowDataToPass.qrCode)}&action=retrieverecipient`;
+          }
+          if (url) {
+            window.location.href = url;
+          }
+        })
       .catch((error) => {
         console.error('Error generating PDF:', error);
         alert('An error occurred while generating the PDF. Please try again.');
@@ -142,7 +166,7 @@ const GoogleSheets = () => {
             <tr
             key={rowIndex}
             onClick={() => handleRowClick(row, rowIndex)}
-            className={selectedRowIndex === rowIndex ? 'selected-row' : ''}
+            className={selectedRowIndex === rowIndex ? styles['selected-row'] : ''}
           >
               {row.map((cell, cellIndex) => (
                 <td key={cellIndex}>{cell}</td>
