@@ -13,7 +13,7 @@ const GoogleSheets = () => {
   const [isAuthorized, setIsAuthorized] = useState(false); // State to track authorization
   const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
   const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
-  const RANGE = 'RAW FORM DATA!A2:T100'; // Adjust the range as needed
+  const RANGE = 'RAW FORM DATA!A2:X100'; // Adjust the range as needed
   const [selectedRowIndex, setSelectedRowIndex] = useState(null); // Track 
   const [noDataFound, setNoDataFound] = useState(false); // New state for no data found message
 
