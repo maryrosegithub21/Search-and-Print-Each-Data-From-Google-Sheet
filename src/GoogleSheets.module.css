@@ -16,6 +16,7 @@
 
 .data-table th {
   background-color: #f2f2f2;
+  text-align: left;
 }
 
 .data-table tr:nth-child(even) {
@@ -41,10 +42,20 @@
 }
 
 .data-table {
-  width: 100%;
+  /* width: 100%;
   max-width: 100%;
-  overflow-x: auto;
+  overflow-x: auto; */
+  width: 100%;
+  border-collapse: collapse;
 }
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto; /* Prevent vertical scrolling */
+  margin-top: 20px;
+  height: 450px; /* Set a fixed height for the container */
+  position: relative;
+}
+
 
 @media (max-width: 768px) {
   .data-table th, .data-table td {
@@ -78,3 +89,5 @@ input[type="text"] {
   width: 80%;
   padding: 0.5em;
 }
+
+

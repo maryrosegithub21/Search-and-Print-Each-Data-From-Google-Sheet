@@ -33,7 +33,7 @@ const GoogleSheets = () => {
            setIsAuthorized(true);
 
             // Filter data to include only columns from "timestamp" to "delivered"
-          const filteredColumns = allData.map(row => row.slice(0, 13)); // Adjust indices as needed
+          const filteredColumns = allData.map(row => row.slice(0, 16)); // Adjust indices as needed
           setData(filteredColumns);
 
          } else {
@@ -155,6 +155,7 @@ const GoogleSheets = () => {
       <button className={styles['print-button']} onClick={handleSearch}>Search</button>
       <button className={styles['print-button']} onClick={handlePassToGoogleDocs}>Print Data</button>
       {noDataFound && <h1>No Data Found</h1>} {/* Display message if no data found */}
+      <div className={styles['table-container']}>
       <table className={styles['data-table']}>
         <thead>
           <tr>
@@ -175,7 +176,7 @@ const GoogleSheets = () => {
           ))}
         </tbody>
       </table>
-         
+      </div>    
     </>
         ) : (
           <h1>Please enter a valid Church ID to access the data.</h1>
